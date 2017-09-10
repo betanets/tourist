@@ -33,6 +33,33 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="TouristDataSet.xsc">
+      <DependentUpon>TouristDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TouristDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TouristDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TouristDataSet.xss">
+      <DependentUpon>TouristDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TouristDataSet.cs">
+      <DependentUpon>TouristDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TouristDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TouristDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
