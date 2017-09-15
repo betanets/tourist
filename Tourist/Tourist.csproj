@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractConnection.cs" />
+    <Compile Include="AbstractTransaction.cs" />
+    <Compile Include="SightDataAccessor.cs" />
     <Compile Include="TouristDataSet.cs">
       <DependentUpon>TouristDataSet.xsd</DependentUpon>
     </Compile>
