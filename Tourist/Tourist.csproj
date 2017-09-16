@@ -54,7 +54,10 @@
   <ItemGroup>
     <Compile Include="AbstractConnection.cs" />
     <Compile Include="AbstractTransaction.cs" />
+    <Compile Include="InstructorDataAccessor.cs" />
+    <Compile Include="ScheduleDataAccessor.cs" />
     <Compile Include="SightDataAccessor.cs" />
+    <Compile Include="TourDataAccessor.cs" />
     <Compile Include="TouristDataSet.cs">
       <DependentUpon>TouristDataSet.xsd</DependentUpon>
     </Compile>
@@ -63,6 +66,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TouristDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TourTypeDataAccessor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

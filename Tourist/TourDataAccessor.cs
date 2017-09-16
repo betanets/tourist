@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace Tourist
 {
-    class SightDataAccessor
+    class TourDataAccessor
     {
         public void ReadData(AbstractTransaction aTransaction, AbstractConnection aConnection, TouristDataSet dataSet)
         {
             SqlDataAdapter dataAdapter = new SqlDataAdapter
             {
-                SelectCommand = new SqlCommand("select * from sight")
+                SelectCommand = new SqlCommand("select * from tour")
             };
             dataAdapter.SelectCommand.Connection = aConnection.connection;
             dataAdapter.SelectCommand.Transaction = aTransaction.transaction;
-            dataAdapter.Fill(dataSet, "sight");
+            dataAdapter.Fill(dataSet, "tour");
         }
 
         public void WriteData(AbstractTransaction aTransaction, AbstractConnection aConnection, TouristDataSet dataSet)
         {
             SqlDataAdapter dataAdapter = new SqlDataAdapter
             {
-                UpdateCommand = new SqlCommand("update sight set sight_name=:name, sight_descr=:descr where id=:id"),
-                InsertCommand = new SqlCommand("insert into sight (sight_name, sight_descr) values (:name, :descr) where id=:id"),
-                DeleteCommand = new SqlCommand("delete from sight where id=:id")
+                UpdateCommand = new SqlCommand("update tour set tour_name=:name, tour_descr=:descr, id_sight=:id_sight, id_schedule=:id_schedule, id_tour_type=:id_tour_type where id=:id"),
+                InsertCommand = new SqlCommand("insert into tour (tour_name, tour_descr, id_sight, id_schedule, id_tour_type) values (:name, :descr, :id_sight, :id_schedule, :id_tour_type) where id=:id"),
+                DeleteCommand = new SqlCommand("delete from tour where id=:id")
             };
             dataAdapter.UpdateCommand.Connection = aConnection.connection;
             dataAdapter.UpdateCommand.Transaction = aTransaction.transaction;
@@ -46,21 +46,45 @@ namespace Tourist
 
             SqlParameter paramName = new SqlParameter
             {
-                SourceColumn = "sight_name",
+                SourceColumn = "tour_name",
                 ParameterName = ":name"
             };
             dataAdapter.UpdateCommand.Parameters.Add(paramName);
             dataAdapter.InsertCommand.Parameters.Add(paramName);
-            
+
             SqlParameter paramDescr = new SqlParameter
             {
-                SourceColumn = "sight_descr",
+                SourceColumn = "tour_descr",
                 ParameterName = ":descr"
             };
             dataAdapter.UpdateCommand.Parameters.Add(paramDescr);
             dataAdapter.InsertCommand.Parameters.Add(paramDescr);
 
-            dataAdapter.Update(dataSet, "sight");
+            SqlParameter paramIdSight = new SqlParameter
+            {
+                SourceColumn = "id_sight",
+                ParameterName = ":id_sight"
+            };
+            dataAdapter.UpdateCommand.Parameters.Add(paramIdSight);
+            dataAdapter.InsertCommand.Parameters.Add(paramIdSight);
+
+            SqlParameter paramIdSchedule = new SqlParameter
+            {
+                SourceColumn = "id_schedule",
+                ParameterName = ":id_schedule"
+            };
+            dataAdapter.UpdateCommand.Parameters.Add(paramIdSchedule);
+            dataAdapter.InsertCommand.Parameters.Add(paramIdSchedule);
+
+            SqlParameter paramIdTourType = new SqlParameter
+            {
+                SourceColumn = "id_tour_type",
+                ParameterName = ":id_tour_type"
+            };
+            dataAdapter.UpdateCommand.Parameters.Add(paramIdTourType);
+            dataAdapter.InsertCommand.Parameters.Add(paramIdTourType);
+
+            dataAdapter.Update(dataSet, "tour");
         }
     }
 }
