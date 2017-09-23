@@ -1,25 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Npgsql;
+using System;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tourist
 {
-    class AbstractConnection : IDisposable
+    public class AbstractConnection : IDisposable
     {
-        public SqlConnection connection
-        {
-            get
-            {
-                return connection;
-            }
-            set
-            {
-                connection = value;
-            }
-        }
+        public NpgsqlConnection connection { get; set; }
 
         public void Open()
         {
@@ -38,7 +25,7 @@ namespace Tourist
 
         public AbstractTransaction BeginTransaction()
         {
-            SqlTransaction transaction = connection.BeginTransaction();
+            NpgsqlTransaction transaction = connection.BeginTransaction();
 
             AbstractTransaction result = new AbstractTransaction();
 

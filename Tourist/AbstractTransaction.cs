@@ -1,25 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Npgsql;
 
 namespace Tourist
 {
-    class AbstractTransaction
+    public class AbstractTransaction
     {
-        public SqlTransaction transaction
-        {
-            get
-            {
-                return transaction;
-            }
-            set
-            {
-                transaction = value;
-            }
-        }
+        public NpgsqlTransaction transaction { get; set; }
 
         public void Commit()
         {

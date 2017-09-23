@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,9 +12,9 @@ namespace Tourist
     {
         public void ReadData(AbstractTransaction aTransaction, AbstractConnection aConnection, TouristDataSet dataSet)
         {
-            SqlDataAdapter dataAdapter = new SqlDataAdapter
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter
             {
-                SelectCommand = new SqlCommand("select * from tour_type")
+                SelectCommand = new NpgsqlCommand("select * from tour_type")
             };
             dataAdapter.SelectCommand.Connection = aConnection.connection;
             dataAdapter.SelectCommand.Transaction = aTransaction.transaction;
@@ -22,11 +23,11 @@ namespace Tourist
 
         public void WriteData(AbstractTransaction aTransaction, AbstractConnection aConnection, TouristDataSet dataSet)
         {
-            SqlDataAdapter dataAdapter = new SqlDataAdapter
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter
             {
-                UpdateCommand = new SqlCommand("update tour_type set tour_type_name=:tour_type_name where id=:id"),
-                InsertCommand = new SqlCommand("insert into tour_type (tour_type_name) values (:tour_type_name) where id=:id"),
-                DeleteCommand = new SqlCommand("delete from tour_type where id=:id")
+                UpdateCommand = new NpgsqlCommand("update tour_type set tour_type_name=:tour_type_name where id=:id"),
+                InsertCommand = new NpgsqlCommand("insert into tour_type (tour_type_name) values (:tour_type_name) where id=:id"),
+                DeleteCommand = new NpgsqlCommand("delete from tour_type where id=:id")
             };
             dataAdapter.UpdateCommand.Connection = aConnection.connection;
             dataAdapter.UpdateCommand.Transaction = aTransaction.transaction;
@@ -35,7 +36,7 @@ namespace Tourist
             dataAdapter.DeleteCommand.Connection = aConnection.connection;
             dataAdapter.DeleteCommand.Transaction = aTransaction.transaction;
 
-            SqlParameter paramId = new SqlParameter
+            NpgsqlParameter paramId = new NpgsqlParameter
             {
                 SourceColumn = "id",
                 ParameterName = ":id"
@@ -44,7 +45,7 @@ namespace Tourist
             dataAdapter.InsertCommand.Parameters.Add(paramId);
             dataAdapter.DeleteCommand.Parameters.Add(paramId);
 
-            SqlParameter paramTourTypeName = new SqlParameter
+            NpgsqlParameter paramTourTypeName = new NpgsqlParameter
             {
                 SourceColumn = "tour_type_name",
                 ParameterName = ":tour_type_name"

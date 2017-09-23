@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Npgsql;
 
 namespace Tourist
 {
@@ -11,9 +6,9 @@ namespace Tourist
     {
         public void ReadData(AbstractTransaction aTransaction, AbstractConnection aConnection, TouristDataSet dataSet)
         {
-            SqlDataAdapter dataAdapter = new SqlDataAdapter
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter
             {
-                SelectCommand = new SqlCommand("select * from instructor")
+                SelectCommand = new NpgsqlCommand("select * from instructor")
             };
             dataAdapter.SelectCommand.Connection = aConnection.connection;
             dataAdapter.SelectCommand.Transaction = aTransaction.transaction;
@@ -22,11 +17,11 @@ namespace Tourist
 
         public void WriteData(AbstractTransaction aTransaction, AbstractConnection aConnection, TouristDataSet dataSet)
         {
-            SqlDataAdapter dataAdapter = new SqlDataAdapter
+            NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter
             {
-                UpdateCommand = new SqlCommand("update instructor set surname=:surname, forename=:forename, patronymic=:patronymic, id_schedule=:id_schedule, id_tour_type=:id_tour_type where id=:id"),
-                InsertCommand = new SqlCommand("insert into instructor (surname, forename, patronymic, id_schedule, id_tour_type) values (:surname, :forename, :patronymic, :id_schedule, :id_tour_type) where id=:id"),
-                DeleteCommand = new SqlCommand("delete from instructor where id=:id")
+                UpdateCommand = new NpgsqlCommand("update instructor set surname=:surname, forename=:forename, patronymic=:patronymic, id_schedule=:id_schedule, id_tour_type=:id_tour_type where id=:id"),
+                InsertCommand = new NpgsqlCommand("insert into instructor (surname, forename, patronymic, id_schedule, id_tour_type) values (:surname, :forename, :patronymic, :id_schedule, :id_tour_type) where id=:id"),
+                DeleteCommand = new NpgsqlCommand("delete from instructor where id=:id")
             };
             dataAdapter.UpdateCommand.Connection = aConnection.connection;
             dataAdapter.UpdateCommand.Transaction = aTransaction.transaction;
@@ -35,7 +30,7 @@ namespace Tourist
             dataAdapter.DeleteCommand.Connection = aConnection.connection;
             dataAdapter.DeleteCommand.Transaction = aTransaction.transaction;
 
-            SqlParameter paramId = new SqlParameter
+            NpgsqlParameter paramId = new NpgsqlParameter
             {
                 SourceColumn = "id",
                 ParameterName = ":id"
@@ -44,7 +39,7 @@ namespace Tourist
             dataAdapter.InsertCommand.Parameters.Add(paramId);
             dataAdapter.DeleteCommand.Parameters.Add(paramId);
 
-            SqlParameter paramSurname = new SqlParameter
+            NpgsqlParameter paramSurname = new NpgsqlParameter
             {
                 SourceColumn = "surname",
                 ParameterName = ":surname"
@@ -52,7 +47,7 @@ namespace Tourist
             dataAdapter.UpdateCommand.Parameters.Add(paramSurname);
             dataAdapter.InsertCommand.Parameters.Add(paramSurname);
 
-            SqlParameter paramForename = new SqlParameter
+            NpgsqlParameter paramForename = new NpgsqlParameter
             {
                 SourceColumn = "forename",
                 ParameterName = ":forename"
@@ -60,7 +55,7 @@ namespace Tourist
             dataAdapter.UpdateCommand.Parameters.Add(paramForename);
             dataAdapter.InsertCommand.Parameters.Add(paramForename);
 
-            SqlParameter paramPatronymic = new SqlParameter
+            NpgsqlParameter paramPatronymic = new NpgsqlParameter
             {
                 SourceColumn = "patronymic",
                 ParameterName = ":patronymic"
@@ -68,7 +63,7 @@ namespace Tourist
             dataAdapter.UpdateCommand.Parameters.Add(paramPatronymic);
             dataAdapter.InsertCommand.Parameters.Add(paramPatronymic);
 
-            SqlParameter paramIdSchedule = new SqlParameter
+            NpgsqlParameter paramIdSchedule = new NpgsqlParameter
             {
                 SourceColumn = "id_schedule",
                 ParameterName = ":id_schedule"
@@ -76,7 +71,7 @@ namespace Tourist
             dataAdapter.UpdateCommand.Parameters.Add(paramIdSchedule);
             dataAdapter.InsertCommand.Parameters.Add(paramIdSchedule);
 
-            SqlParameter paramIdTourType = new SqlParameter
+            NpgsqlParameter paramIdTourType = new NpgsqlParameter
             {
                 SourceColumn = "id_tour_type",
                 ParameterName = ":id_tour_type"
