@@ -70,11 +70,11 @@
     <Compile Include="AbstractTransaction.cs" />
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="Init.cs" />
-    <Compile Include="InstructorDataAccessor.cs" />
-    <Compile Include="NUnitTests.cs" />
-    <Compile Include="ScheduleDataAccessor.cs" />
-    <Compile Include="SightDataAccessor.cs" />
-    <Compile Include="TourDataAccessor.cs" />
+    <Compile Include="DataAccessors\InstructorDataAccessor.cs" />
+    <Compile Include="Tests\NUnitTests.cs" />
+    <Compile Include="DataAccessors\ScheduleDataAccessor.cs" />
+    <Compile Include="DataAccessors\SightDataAccessor.cs" />
+    <Compile Include="DataAccessors\TourDataAccessor.cs" />
     <Compile Include="TouristDataSet.cs">
       <DependentUpon>TouristDataSet.xsd</DependentUpon>
     </Compile>
@@ -83,7 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TouristDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="TourTypeDataAccessor.cs" />
+    <Compile Include="DataAccessors\TourTypeDataAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

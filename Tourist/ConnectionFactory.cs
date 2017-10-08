@@ -5,7 +5,7 @@ namespace Tourist
 {
     public class ConnectionFactory
     {
-        public static AbstractConnection CreateConection()
+        public static AbstractConnection CreateConnection()
         {
             NpgsqlConnection connection = new NpgsqlConnection(getConnectionString());
             AbstractConnection result = new AbstractConnection();

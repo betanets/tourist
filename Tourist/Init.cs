@@ -12,7 +12,7 @@ namespace Tourist
         public static void Main()
         {
             TouristDataSet touristDataSet = new TouristDataSet();
-            AbstractConnection connection = ConnectionFactory.CreateConection();
+            AbstractConnection connection = ConnectionFactory.CreateConnection();
             connection.Open();
             try
             {

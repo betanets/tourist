@@ -1,6 +1,5 @@
 ﻿using Npgsql;
 using System;
-using System.Data.SqlClient;
 
 namespace Tourist
 {

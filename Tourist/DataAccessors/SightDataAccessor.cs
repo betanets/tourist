@@ -20,7 +20,7 @@ namespace Tourist
             NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter
             {
                 UpdateCommand = new NpgsqlCommand("update sight set sight_name=:name, sight_descr=:descr where id=:id"),
-                InsertCommand = new NpgsqlCommand("insert into sight (sight_name, sight_descr) values (:name, :descr) where id=:id"),
+                InsertCommand = new NpgsqlCommand("insert into sight (sight_name, sight_descr) values (:name, :descr)"),
                 DeleteCommand = new NpgsqlCommand("delete from sight where id=:id")
             };
             dataAdapter.UpdateCommand.Connection = aConnection.connection;
@@ -30,30 +30,47 @@ namespace Tourist
             dataAdapter.DeleteCommand.Connection = aConnection.connection;
             dataAdapter.DeleteCommand.Transaction = aTransaction.transaction;
 
-            NpgsqlParameter paramId = new NpgsqlParameter
+            NpgsqlParameter paramIdU = new NpgsqlParameter
             {
                 SourceColumn = "id",
                 ParameterName = ":id"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramId);
-            dataAdapter.InsertCommand.Parameters.Add(paramId);
-            dataAdapter.DeleteCommand.Parameters.Add(paramId);
+            NpgsqlParameter paramIdD = new NpgsqlParameter
+            {
+                SourceColumn = "id",
+                ParameterName = ":id"
+            };
 
-            NpgsqlParameter paramName = new NpgsqlParameter
+            dataAdapter.UpdateCommand.Parameters.Add(paramIdU);
+            dataAdapter.DeleteCommand.Parameters.Add(paramIdD);
+
+            NpgsqlParameter paramNameU = new NpgsqlParameter
             {
                 SourceColumn = "sight_name",
                 ParameterName = ":name"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramName);
-            dataAdapter.InsertCommand.Parameters.Add(paramName);
+            NpgsqlParameter paramNameI = new NpgsqlParameter
+            {
+                SourceColumn = "sight_name",
+                ParameterName = ":name"
+            };
 
-            NpgsqlParameter paramDescr = new NpgsqlParameter
+            dataAdapter.UpdateCommand.Parameters.Add(paramNameU);
+            dataAdapter.InsertCommand.Parameters.Add(paramNameI);
+
+            NpgsqlParameter paramDescrU = new NpgsqlParameter
             {
                 SourceColumn = "sight_descr",
                 ParameterName = ":descr"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramDescr);
-            dataAdapter.InsertCommand.Parameters.Add(paramDescr);
+            NpgsqlParameter paramDescrI = new NpgsqlParameter
+            {
+                SourceColumn = "sight_descr",
+                ParameterName = ":descr"
+            };
+
+            dataAdapter.UpdateCommand.Parameters.Add(paramDescrU);
+            dataAdapter.InsertCommand.Parameters.Add(paramDescrI);
 
             dataAdapter.Update(dataSet, "sight");
         }
