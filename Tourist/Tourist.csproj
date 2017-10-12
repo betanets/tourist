@@ -71,6 +71,7 @@
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="Init.cs" />
     <Compile Include="DataAccessors\InstructorDataAccessor.cs" />
+    <Compile Include="Tests\InstructorDataAccessotTests.cs" />
     <Compile Include="Tests\ScheduleDataAccessorTests.cs" />
     <Compile Include="Tests\SightDataAccessorTests.cs" />
     <Compile Include="DataAccessors\ScheduleDataAccessor.cs" />

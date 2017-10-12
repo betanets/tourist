@@ -11,18 +11,27 @@ namespace Tourist.Tests
             AbstractConnection abstractConnection = ConnectionFactory.CreateConnection();
             abstractConnection.Open();
             TouristDataSet ds = new TouristDataSet();
+            InstructorDataAccessor instructorDataAccessor = new InstructorDataAccessor();
             ScheduleDataAccessor scheduleDataAccessor = new ScheduleDataAccessor();
             AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
 
             //Чтение в датасет и удаление оттуда всех записей
+            instructorDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
             scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            for (int i = 0; i < ds.Instructor.Count; i++)
+            {
+                ds.Instructor[i].Delete();
+            }
             for (int i = 0; i < ds.Schedule.Count; i++)
             {
                 ds.Schedule[i].Delete();
             }
 
             //Сохранение в БД
+            instructorDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
             scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+
+            ds.Instructor.Clear();
             ds.Schedule.Clear();
 
             //Чтение в датасет из пустой таблицы
