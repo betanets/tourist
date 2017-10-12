@@ -20,7 +20,7 @@ namespace Tourist
             NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter
             {
                 UpdateCommand = new NpgsqlCommand("update schedule set tour_date=:tour_date where id=:id"),
-                InsertCommand = new NpgsqlCommand("insert into schedule (tour_date) values (:tour_date) where id=:id"),
+                InsertCommand = new NpgsqlCommand("insert into schedule (tour_date) values (:tour_date)"),
                 DeleteCommand = new NpgsqlCommand("delete from schedule where id=:id")
             };
             dataAdapter.UpdateCommand.Connection = aConnection.connection;
@@ -30,22 +30,33 @@ namespace Tourist
             dataAdapter.DeleteCommand.Connection = aConnection.connection;
             dataAdapter.DeleteCommand.Transaction = aTransaction.transaction;
 
-            NpgsqlParameter paramId = new NpgsqlParameter
+            NpgsqlParameter paramIdU = new NpgsqlParameter
             {
                 SourceColumn = "id",
                 ParameterName = ":id"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramId);
-            dataAdapter.InsertCommand.Parameters.Add(paramId);
-            dataAdapter.DeleteCommand.Parameters.Add(paramId);
+            dataAdapter.UpdateCommand.Parameters.Add(paramIdU);
 
-            NpgsqlParameter paramTourDate = new NpgsqlParameter
+            NpgsqlParameter paramIdD = new NpgsqlParameter
             {
-                SourceColumn = "sight_name",
-                ParameterName = ":name"
+                SourceColumn = "id",
+                ParameterName = ":id"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramTourDate);
-            dataAdapter.InsertCommand.Parameters.Add(paramTourDate);
+            dataAdapter.DeleteCommand.Parameters.Add(paramIdD);
+
+            NpgsqlParameter paramTourDateU = new NpgsqlParameter
+            {
+                SourceColumn = "tour_date",
+                ParameterName = ":tour_date"
+            };
+            dataAdapter.UpdateCommand.Parameters.Add(paramTourDateU);
+
+            NpgsqlParameter paramTourDateI = new NpgsqlParameter
+            {
+                SourceColumn = "tour_date",
+                ParameterName = ":tour_date"
+            };
+            dataAdapter.InsertCommand.Parameters.Add(paramTourDateI);
 
             dataAdapter.Update(dataSet, "schedule");
         }

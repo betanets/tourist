@@ -34,15 +34,15 @@ namespace Tourist {
         
         private InstructorDataTable tableInstructor;
         
-        private global::System.Data.DataRelation relationFK_Sight_Tour;
+        private global::System.Data.DataRelation relationFK_TourType_Tour;
         
         private global::System.Data.DataRelation relationFK_Schedule_Tour;
         
-        private global::System.Data.DataRelation relationFK_TourType_Tour;
-        
-        private global::System.Data.DataRelation relationFK_Schedule_Instructor;
+        private global::System.Data.DataRelation relationFK_Sight_Tour;
         
         private global::System.Data.DataRelation relationFK_TourType_Instructor;
+        
+        private global::System.Data.DataRelation relationFK_Schedule_Instructor;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -300,11 +300,11 @@ namespace Tourist {
                     this.tableInstructor.InitVars();
                 }
             }
-            this.relationFK_Sight_Tour = this.Relations["FK_Sight_Tour"];
-            this.relationFK_Schedule_Tour = this.Relations["FK_Schedule_Tour"];
             this.relationFK_TourType_Tour = this.Relations["FK_TourType_Tour"];
-            this.relationFK_Schedule_Instructor = this.Relations["FK_Schedule_Instructor"];
+            this.relationFK_Schedule_Tour = this.Relations["FK_Schedule_Tour"];
+            this.relationFK_Sight_Tour = this.Relations["FK_Sight_Tour"];
             this.relationFK_TourType_Instructor = this.Relations["FK_TourType_Instructor"];
+            this.relationFK_Schedule_Instructor = this.Relations["FK_Schedule_Instructor"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -326,9 +326,9 @@ namespace Tourist {
             this.tableInstructor = new InstructorDataTable();
             base.Tables.Add(this.tableInstructor);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Sight_Tour", new global::System.Data.DataColumn[] {
-                        this.tableSight.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTour.id_sightColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_TourType_Tour", new global::System.Data.DataColumn[] {
+                        this.tableTourType.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTour.id_tour_typeColumn});
             this.tableTour.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -340,17 +340,10 @@ namespace Tourist {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_TourType_Tour", new global::System.Data.DataColumn[] {
-                        this.tableTourType.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTour.id_tour_typeColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Sight_Tour", new global::System.Data.DataColumn[] {
+                        this.tableSight.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTour.id_sightColumn});
             this.tableTour.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Schedule_Instructor", new global::System.Data.DataColumn[] {
-                        this.tableSchedule.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableInstructor.id_scheduleColumn});
-            this.tableInstructor.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
@@ -361,26 +354,33 @@ namespace Tourist {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_Sight_Tour = new global::System.Data.DataRelation("FK_Sight_Tour", new global::System.Data.DataColumn[] {
-                        this.tableSight.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTour.id_sightColumn}, false);
-            this.Relations.Add(this.relationFK_Sight_Tour);
-            this.relationFK_Schedule_Tour = new global::System.Data.DataRelation("FK_Schedule_Tour", new global::System.Data.DataColumn[] {
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Schedule_Instructor", new global::System.Data.DataColumn[] {
                         this.tableSchedule.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTour.id_scheduleColumn}, false);
-            this.Relations.Add(this.relationFK_Schedule_Tour);
+                        this.tableInstructor.id_scheduleColumn});
+            this.tableInstructor.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_TourType_Tour = new global::System.Data.DataRelation("FK_TourType_Tour", new global::System.Data.DataColumn[] {
                         this.tableTourType.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableTour.id_tour_typeColumn}, false);
             this.Relations.Add(this.relationFK_TourType_Tour);
-            this.relationFK_Schedule_Instructor = new global::System.Data.DataRelation("FK_Schedule_Instructor", new global::System.Data.DataColumn[] {
+            this.relationFK_Schedule_Tour = new global::System.Data.DataRelation("FK_Schedule_Tour", new global::System.Data.DataColumn[] {
                         this.tableSchedule.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableInstructor.id_scheduleColumn}, false);
-            this.Relations.Add(this.relationFK_Schedule_Instructor);
+                        this.tableTour.id_scheduleColumn}, false);
+            this.Relations.Add(this.relationFK_Schedule_Tour);
+            this.relationFK_Sight_Tour = new global::System.Data.DataRelation("FK_Sight_Tour", new global::System.Data.DataColumn[] {
+                        this.tableSight.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTour.id_sightColumn}, false);
+            this.Relations.Add(this.relationFK_Sight_Tour);
             this.relationFK_TourType_Instructor = new global::System.Data.DataRelation("FK_TourType_Instructor", new global::System.Data.DataColumn[] {
                         this.tableTourType.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableInstructor.id_tour_typeColumn}, false);
             this.Relations.Add(this.relationFK_TourType_Instructor);
+            this.relationFK_Schedule_Instructor = new global::System.Data.DataRelation("FK_Schedule_Instructor", new global::System.Data.DataColumn[] {
+                        this.tableSchedule.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableInstructor.id_scheduleColumn}, false);
+            this.Relations.Add(this.relationFK_Schedule_Instructor);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1206,10 +1206,10 @@ namespace Tourist {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TourTypeRow AddTourTypeRow(int id, string tour_type_name) {
+            public TourTypeRow AddTourTypeRow(string tour_type_name) {
                 TourTypeRow rowTourTypeRow = ((TourTypeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        null,
                         tour_type_name};
                 rowTourTypeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTourTypeRow);
@@ -1253,6 +1253,9 @@ namespace Tourist {
                 base.Columns.Add(this.columntour_type_name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("tour_type_pk", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
             }
@@ -1478,10 +1481,10 @@ namespace Tourist {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ScheduleRow AddScheduleRow(int id, System.DateTime tour_date) {
+            public ScheduleRow AddScheduleRow(System.DateTime tour_date) {
                 ScheduleRow rowScheduleRow = ((ScheduleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        null,
                         tour_date};
                 rowScheduleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowScheduleRow);
@@ -1525,6 +1528,9 @@ namespace Tourist {
                 base.Columns.Add(this.columntour_date);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("schedule_pk", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
             }
@@ -2187,12 +2193,12 @@ namespace Tourist {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SightRow SightRow {
+            public TourTypeRow TourTypeRow {
                 get {
-                    return ((SightRow)(this.GetParentRow(this.Table.ParentRelations["FK_Sight_Tour"])));
+                    return ((TourTypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_TourType_Tour"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Sight_Tour"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_TourType_Tour"]);
                 }
             }
             
@@ -2209,12 +2215,12 @@ namespace Tourist {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TourTypeRow TourTypeRow {
+            public SightRow SightRow {
                 get {
-                    return ((TourTypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_TourType_Tour"])));
+                    return ((SightRow)(this.GetParentRow(this.Table.ParentRelations["FK_Sight_Tour"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_TourType_Tour"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Sight_Tour"]);
                 }
             }
             
@@ -2538,23 +2544,23 @@ namespace Tourist {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ScheduleRow ScheduleRow {
-                get {
-                    return ((ScheduleRow)(this.GetParentRow(this.Table.ParentRelations["FK_Schedule_Instructor"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Schedule_Instructor"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TourTypeRow TourTypeRow {
                 get {
                     return ((TourTypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_TourType_Instructor"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_TourType_Instructor"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ScheduleRow ScheduleRow {
+                get {
+                    return ((ScheduleRow)(this.GetParentRow(this.Table.ParentRelations["FK_Schedule_Instructor"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Schedule_Instructor"]);
                 }
             }
             

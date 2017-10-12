@@ -71,10 +71,12 @@
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="Init.cs" />
     <Compile Include="DataAccessors\InstructorDataAccessor.cs" />
-    <Compile Include="Tests\NUnitTests.cs" />
+    <Compile Include="Tests\ScheduleDataAccessorTests.cs" />
+    <Compile Include="Tests\SightDataAccessorTests.cs" />
     <Compile Include="DataAccessors\ScheduleDataAccessor.cs" />
     <Compile Include="DataAccessors\SightDataAccessor.cs" />
     <Compile Include="DataAccessors\TourDataAccessor.cs" />
+    <Compile Include="Tests\TourTypeDataAccessorTests.cs" />
     <Compile Include="TouristDataSet.cs">
       <DependentUpon>TouristDataSet.xsd</DependentUpon>
     </Compile>

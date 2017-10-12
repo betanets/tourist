@@ -146,7 +146,7 @@ namespace Tourist
             countElement = ds.Sight.Count;
 
             //Проверяем, что число строк >= 1
-            Assert.GreaterOrEqual(1, countElement);
+            Assert.GreaterOrEqual(countElement, 1);
 
             //Меняем поле и пишем в БД
             ds.Sight[countElement - 1].sight_descr = "Hello from Update";
