@@ -20,7 +20,7 @@ namespace Tourist
             NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter
             {
                 UpdateCommand = new NpgsqlCommand("update tour set tour_name=:name, tour_descr=:descr, id_sight=:id_sight, id_schedule=:id_schedule, id_tour_type=:id_tour_type where id=:id"),
-                InsertCommand = new NpgsqlCommand("insert into tour (tour_name, tour_descr, id_sight, id_schedule, id_tour_type) values (:name, :descr, :id_sight, :id_schedule, :id_tour_type) where id=:id"),
+                InsertCommand = new NpgsqlCommand("insert into tour (tour_name, tour_descr, id_sight, id_schedule, id_tour_type) values (:name, :descr, :id_sight, :id_schedule, :id_tour_type)"),
                 DeleteCommand = new NpgsqlCommand("delete from tour where id=:id")
             };
             dataAdapter.UpdateCommand.Connection = aConnection.connection;
@@ -30,54 +30,89 @@ namespace Tourist
             dataAdapter.DeleteCommand.Connection = aConnection.connection;
             dataAdapter.DeleteCommand.Transaction = aTransaction.transaction;
 
-            NpgsqlParameter paramId = new NpgsqlParameter
+            NpgsqlParameter paramIdU = new NpgsqlParameter
             {
                 SourceColumn = "id",
                 ParameterName = ":id"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramId);
-            dataAdapter.InsertCommand.Parameters.Add(paramId);
-            dataAdapter.DeleteCommand.Parameters.Add(paramId);
+            dataAdapter.UpdateCommand.Parameters.Add(paramIdU);
 
-            NpgsqlParameter paramName = new NpgsqlParameter
+            NpgsqlParameter paramIdD = new NpgsqlParameter
+            {
+                SourceColumn = "id",
+                ParameterName = ":id"
+            };
+            dataAdapter.DeleteCommand.Parameters.Add(paramIdD);
+
+            NpgsqlParameter paramNameU = new NpgsqlParameter
             {
                 SourceColumn = "tour_name",
                 ParameterName = ":name"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramName);
-            dataAdapter.InsertCommand.Parameters.Add(paramName);
+            dataAdapter.UpdateCommand.Parameters.Add(paramNameU);
 
-            NpgsqlParameter paramDescr = new NpgsqlParameter
+            NpgsqlParameter paramNameI = new NpgsqlParameter
+            {
+                SourceColumn = "tour_name",
+                ParameterName = ":name"
+            };
+            dataAdapter.InsertCommand.Parameters.Add(paramNameI);
+
+            NpgsqlParameter paramDescrU = new NpgsqlParameter
             {
                 SourceColumn = "tour_descr",
                 ParameterName = ":descr"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramDescr);
-            dataAdapter.InsertCommand.Parameters.Add(paramDescr);
+            dataAdapter.UpdateCommand.Parameters.Add(paramDescrU);
 
-            NpgsqlParameter paramIdSight = new NpgsqlParameter
+            NpgsqlParameter paramDescrI = new NpgsqlParameter
+            {
+                SourceColumn = "tour_descr",
+                ParameterName = ":descr"
+            };
+            dataAdapter.InsertCommand.Parameters.Add(paramDescrI);
+
+            NpgsqlParameter paramIdSightU = new NpgsqlParameter
             {
                 SourceColumn = "id_sight",
                 ParameterName = ":id_sight"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramIdSight);
-            dataAdapter.InsertCommand.Parameters.Add(paramIdSight);
+            dataAdapter.UpdateCommand.Parameters.Add(paramIdSightU);
 
-            NpgsqlParameter paramIdSchedule = new NpgsqlParameter
+            NpgsqlParameter paramIdSightI = new NpgsqlParameter
+            {
+                SourceColumn = "id_sight",
+                ParameterName = ":id_sight"
+            };
+            dataAdapter.InsertCommand.Parameters.Add(paramIdSightI);
+
+            NpgsqlParameter paramIdScheduleU = new NpgsqlParameter
             {
                 SourceColumn = "id_schedule",
                 ParameterName = ":id_schedule"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramIdSchedule);
-            dataAdapter.InsertCommand.Parameters.Add(paramIdSchedule);
+            dataAdapter.UpdateCommand.Parameters.Add(paramIdScheduleU);
 
-            NpgsqlParameter paramIdTourType = new NpgsqlParameter
+            NpgsqlParameter paramIdScheduleI = new NpgsqlParameter
+            {
+                SourceColumn = "id_schedule",
+                ParameterName = ":id_schedule"
+            };
+            dataAdapter.InsertCommand.Parameters.Add(paramIdScheduleI);
+
+            NpgsqlParameter paramIdTourTypeU = new NpgsqlParameter
             {
                 SourceColumn = "id_tour_type",
                 ParameterName = ":id_tour_type"
             };
-            dataAdapter.UpdateCommand.Parameters.Add(paramIdTourType);
-            dataAdapter.InsertCommand.Parameters.Add(paramIdTourType);
+            dataAdapter.UpdateCommand.Parameters.Add(paramIdTourTypeU);
+
+            NpgsqlParameter paramIdTourTypeI = new NpgsqlParameter
+            {
+                SourceColumn = "id_tour_type",
+                ParameterName = ":id_tour_type"
+            };
+            dataAdapter.InsertCommand.Parameters.Add(paramIdTourTypeI);
 
             dataAdapter.Update(dataSet, "tour");
         }

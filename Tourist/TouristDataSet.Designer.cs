@@ -873,10 +873,10 @@ namespace Tourist {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TourRow AddTourRow(int id, string tour_name, string tour_descr, SightRow parentSightRowByFK_Sight_Tour, ScheduleRow parentScheduleRowByFK_Schedule_Tour, TourTypeRow parentTourTypeRowByFK_TourType_Tour) {
+            public TourRow AddTourRow(string tour_name, string tour_descr, SightRow parentSightRowByFK_Sight_Tour, ScheduleRow parentScheduleRowByFK_Schedule_Tour, TourTypeRow parentTourTypeRowByFK_TourType_Tour) {
                 TourRow rowTourRow = ((TourRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id,
+                        null,
                         tour_name,
                         tour_descr,
                         null,
@@ -945,6 +945,9 @@ namespace Tourist {
                 base.Columns.Add(this.columnid_tour_type);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("tour_pk", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
             }

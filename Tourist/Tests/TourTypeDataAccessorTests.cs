@@ -11,15 +11,21 @@ namespace Tourist.Tests
             abstractConnection.Open();
             TouristDataSet ds = new TouristDataSet();
             InstructorDataAccessor instructorDataAccessor = new InstructorDataAccessor();
+            TourDataAccessor tourDataAccessor = new TourDataAccessor();
             TourTypeDataAccessor tourTypeDataAccessor = new TourTypeDataAccessor();
             AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
 
             //Чтение в датасет и удаление оттуда всех записей
             instructorDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            tourDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
             tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
             for (int i = 0; i < ds.Instructor.Count; i++)
             {
                 ds.Instructor[i].Delete();
+            }
+            for (int i = 0; i < ds.Tour.Count; i++)
+            {
+                ds.Tour[i].Delete();
             }
             for (int i = 0; i < ds.TourType.Count; i++)
             {
@@ -28,9 +34,11 @@ namespace Tourist.Tests
 
             //Сохранение в БД
             instructorDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+            tourDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
             tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
 
             ds.Instructor.Clear();
+            ds.Tour.Clear();
             ds.TourType.Clear();
 
             //Чтение в датасет из пустой таблицы

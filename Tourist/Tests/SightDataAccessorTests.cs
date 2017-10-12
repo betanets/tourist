@@ -10,18 +10,27 @@ namespace Tourist
             AbstractConnection abstractConnection = ConnectionFactory.CreateConnection();
             abstractConnection.Open();
             TouristDataSet ds = new TouristDataSet();
+            TourDataAccessor tourDataAccessor = new TourDataAccessor();
             SightDataAccessor sightDataAccessor = new SightDataAccessor();
             AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
 
             //Чтение в датасет и удаление оттуда всех записей
+            tourDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
             sightDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            for (int i = 0; i < ds.Tour.Count; i++)
+            {
+                ds.Tour[i].Delete();
+            }
             for (int i = 0; i < ds.Sight.Count; i++)
             {
                 ds.Sight[i].Delete();
             }
 
             //Сохранение в БД
+            tourDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
             sightDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+
+            ds.Tour.Clear();
             ds.Sight.Clear();
 
             //Чтение в датасет из пустой таблицы
