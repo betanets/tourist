@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="AbstractConnection.cs" />
     <Compile Include="AbstractTransaction.cs" />
+    <Compile Include="BusinessLogic\BusinessLogic.cs" />
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="Init.cs" />
     <Compile Include="DataAccessors\InstructorDataAccessor.cs" />
