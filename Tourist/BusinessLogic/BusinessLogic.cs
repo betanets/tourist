@@ -12,7 +12,11 @@ namespace Tourist.BusinessLogic
 
         public BusinessLogic()
         {
-
+            sightDataAccessor = new SightDataAccessor();
+            tourDataAccessor = new TourDataAccessor();
+            instructorDataAccessor = new InstructorDataAccessor();
+            tourTypeDataAccessor = new TourTypeDataAccessor();
+            scheduleDataAccessor = new ScheduleDataAccessor();
         }
 
         //Конструкторы для DataAccessor'ов
@@ -153,6 +157,8 @@ namespace Tourist.BusinessLogic
                 try
                 {
                     instructorDataAccessor.ReadData(abstractTransaction, abstractConnection, dataSet);
+                    scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, dataSet);
+                    tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, dataSet);
                     abstractTransaction.Commit();
                 }
                 catch (Exception e)
@@ -172,6 +178,8 @@ namespace Tourist.BusinessLogic
                 try
                 {
                     instructorDataAccessor.WriteData(abstractTransaction, abstractConnection, dataSet);
+                    scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, dataSet);
+                    tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, dataSet);
                     abstractTransaction.Commit();
                 }
                 catch (Exception e)

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Tourist
+namespace Tourist.Tests.DataAccessor
 {
     class NUnitTests
     {

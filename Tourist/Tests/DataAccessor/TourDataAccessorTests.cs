@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace Tourist.Tests
+namespace Tourist.Tests.DataAccessor
 {
     class TourDataAccessorTests
     {

@@ -1,24 +1,25 @@
 ﻿using NUnit.Framework;
+using System;
 
-namespace Tourist.Tests
+namespace Tourist.Tests.DataAccessor
 {
-    class TourTypeDataAccessorTests
+    class ScheduleDataAccessorTests
     {
         [Test]
-        public void TourTypeReadEmptyTable()
+        public void ScheduleReadEmptyTable()
         {
             AbstractConnection abstractConnection = ConnectionFactory.CreateConnection();
             abstractConnection.Open();
             TouristDataSet ds = new TouristDataSet();
             InstructorDataAccessor instructorDataAccessor = new InstructorDataAccessor();
             TourDataAccessor tourDataAccessor = new TourDataAccessor();
-            TourTypeDataAccessor tourTypeDataAccessor = new TourTypeDataAccessor();
+            ScheduleDataAccessor scheduleDataAccessor = new ScheduleDataAccessor();
             AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
 
             //Чтение в датасет и удаление оттуда всех записей
             instructorDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
             tourDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
             for (int i = 0; i < ds.Instructor.Count; i++)
             {
                 ds.Instructor[i].Delete();
@@ -27,23 +28,23 @@ namespace Tourist.Tests
             {
                 ds.Tour[i].Delete();
             }
-            for (int i = 0; i < ds.TourType.Count; i++)
+            for (int i = 0; i < ds.Schedule.Count; i++)
             {
-                ds.TourType[i].Delete();
+                ds.Schedule[i].Delete();
             }
 
             //Сохранение в БД
             instructorDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
             tourDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
-            tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+            scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
 
             ds.Instructor.Clear();
             ds.Tour.Clear();
-            ds.TourType.Clear();
+            ds.Schedule.Clear();
 
             //Чтение в датасет из пустой таблицы
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
-            int countElement = ds.TourType.Count;
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            int countElement = ds.Schedule.Count;
 
             abstractTransaction.Commit();
             abstractConnection.Close();
@@ -52,128 +53,142 @@ namespace Tourist.Tests
         }
 
         [Test]
-        public void TourTypeReadNotEmptyTable()
+        public void ScheduleReadNotEmptyTable()
         {
             AbstractConnection abstractConnection = ConnectionFactory.CreateConnection();
             abstractConnection.Open();
             TouristDataSet ds = new TouristDataSet();
-            TourTypeDataAccessor tourTypeDataAccessor = new TourTypeDataAccessor();
+            ScheduleDataAccessor scheduleDataAccessor = new ScheduleDataAccessor();
             AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
 
             //Читаем строки с БД и смотрим их число
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
-            int countElements = ds.TourType.Count;
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            int countElements = ds.Schedule.Count;
 
             //Добавляем строку и пишем в базу
-            ds.TourType.AddTourTypeRow("Поход в горы");
-            tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
-            ds.TourType.Clear();
+            DateTime currentDateTime = DateTime.Now;
+            currentDateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, 
+                currentDateTime.Hour, currentDateTime.Minute, currentDateTime.Second);
+            ds.Schedule.AddScheduleRow(currentDateTime);
+            scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+            ds.Schedule.Clear();
 
             //Читаем снова и смотрим на последнюю строку
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
 
             abstractTransaction.Commit();
             abstractConnection.Close();
-            Assert.AreEqual("Поход в горы", ds.TourType[countElements].tour_type_name);
+            Assert.AreEqual(currentDateTime, ds.Schedule[countElements].tour_date);
         }
 
         [Test]
-        public void TourTypeDelete()
+        public void ScheduleDelete()
         {
             AbstractConnection abstractConnection = ConnectionFactory.CreateConnection();
             abstractConnection.Open();
             TouristDataSet ds = new TouristDataSet();
-            TourTypeDataAccessor tourTypeDataAccessor = new TourTypeDataAccessor();
+            ScheduleDataAccessor scheduleDataAccessor = new ScheduleDataAccessor();
             AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
 
             //Читаем данные с БД в датасет и смотрим число строк
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
-            int countElements = ds.TourType.Count;
-            ds.TourType.Clear();
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            int countElements = ds.Schedule.Count;
+            ds.Schedule.Clear();
 
             //Добавляем строку в датасет и записываем в БД
-            ds.TourType.AddTourTypeRow("DelMe");
-            tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+            DateTime currentDateTime = DateTime.Now;
+            currentDateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day,
+                currentDateTime.Hour, currentDateTime.Minute, currentDateTime.Second);
+            ds.Schedule.AddScheduleRow(currentDateTime);
+            scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
 
             //Чистим датасет, записываем в него ещё раз и удаляем из него последнюю запись
-            ds.TourType.Clear();
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
-            ds.TourType[countElements].Delete();
+            ds.Schedule.Clear();
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            ds.Schedule[countElements].Delete();
 
             //Пишем в БД и снова читаем из неё в датасет
-            tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
-            ds.TourType.Clear();
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+            ds.Schedule.Clear();
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
 
             abstractTransaction.Commit();
             abstractConnection.Close();
 
             //Смотрим число строк до всех манипуляций и после
-            Assert.AreEqual(ds.TourType.Count, countElements);
+            Assert.AreEqual(ds.Schedule.Count, countElements);
         }
 
         [Test]
-        public void TourTypeInsert()
+        public void ScheduleInsert()
         {
             AbstractConnection abstractConnection = ConnectionFactory.CreateConnection();
             abstractConnection.Open();
             TouristDataSet ds = new TouristDataSet();
-            TourTypeDataAccessor tourTypeDataAccessor = new TourTypeDataAccessor();
+            ScheduleDataAccessor scheduleDataAccessor = new ScheduleDataAccessor();
             AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
 
             //Читаем данные с БД, считаем число записей в датасете
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
-            int countElement = ds.TourType.Count;
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            int countElement = ds.Schedule.Count;
 
             //Добавляем строку в датасет, сохраняем в БД, снова читаем в датасет
-            ds.TourType.AddTourTypeRow("InsertStr");
-            tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
-            ds.TourType.Clear();
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            DateTime currentDateTime = DateTime.Now;
+            currentDateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day,
+                currentDateTime.Hour, currentDateTime.Minute, currentDateTime.Second);
+            ds.Schedule.AddScheduleRow(currentDateTime);
+            scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+            ds.Schedule.Clear();
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
 
             abstractTransaction.Commit();
             abstractConnection.Close();
 
-            Assert.AreEqual("InsertStr", ds.TourType[countElement].tour_type_name);
+            Assert.AreEqual(currentDateTime, ds.Schedule[countElement].tour_date);
         }
 
         [Test]
-        public void TourTypeUpdate()
+        public void ScheduleUpdate()
         {
             AbstractConnection abstractConnection = ConnectionFactory.CreateConnection();
             abstractConnection.Open();
             TouristDataSet ds = new TouristDataSet();
-            TourTypeDataAccessor tourTypeDataAccessor = new TourTypeDataAccessor();
+            ScheduleDataAccessor scheduleDataAccessor = new ScheduleDataAccessor();
             AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
 
+            DateTime currentDateTime = DateTime.Now;
+            currentDateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day,
+                currentDateTime.Hour, currentDateTime.Minute, currentDateTime.Second);
+
             //Читаем и проверяем, что в таблице хоть что-то есть
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
-            int countElement = ds.TourType.Count;
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            int countElement = ds.Sight.Count;
             if (countElement == 0)
             {
                 //Если ничего нет, добавляем 1 строку
-                ds.TourType.AddTourTypeRow("InsertAgain");
-                tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+                
+                ds.Schedule.AddScheduleRow(currentDateTime);
+                scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
             }
             //Читаем снова, пересчитываем число строк
-            ds.TourType.Clear();
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
-            countElement = ds.TourType.Count;
+            ds.Schedule.Clear();
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            countElement = ds.Schedule.Count;
 
             //Проверяем, что число строк >= 1
             Assert.GreaterOrEqual(countElement, 1);
 
             //Меняем поле и пишем в БД
-            ds.TourType[countElement - 1].tour_type_name = "Hello from Update TT";
-            tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
-            ds.TourType.Clear();
+            ds.Schedule[countElement - 1].tour_date = currentDateTime.AddDays(3);
+            scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, ds);
+            ds.Schedule.Clear();
 
             //Читаем снова и сравниваем
-            tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
+            scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, ds);
 
             abstractTransaction.Commit();
             abstractConnection.Close();
-            Assert.AreEqual("Hello from Update TT", ds.TourType[countElement - 1].tour_type_name);
+            Assert.AreEqual(currentDateTime.AddDays(3), ds.Schedule[countElement - 1].tour_date);
         }
     }
 }

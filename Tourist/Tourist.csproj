@@ -72,14 +72,17 @@
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="Init.cs" />
     <Compile Include="DataAccessors\InstructorDataAccessor.cs" />
-    <Compile Include="Tests\InstructorDataAccessotTests.cs" />
-    <Compile Include="Tests\ScheduleDataAccessorTests.cs" />
-    <Compile Include="Tests\SightDataAccessorTests.cs" />
+    <Compile Include="Tests\BusinessLogic\InstructorBusinessLogicTests.cs" />
+    <Compile Include="Tests\BusinessLogic\ScheduleBusinessLogicTests.cs" />
+    <Compile Include="Tests\DataAccessor\InstructorDataAccessorTests.cs" />
+    <Compile Include="Tests\DataAccessor\ScheduleDataAccessorTests.cs" />
+    <Compile Include="Tests\BusinessLogic\SightBusinessLogicTests.cs" />
+    <Compile Include="Tests\DataAccessor\SightDataAccessorTests.cs" />
     <Compile Include="DataAccessors\ScheduleDataAccessor.cs" />
     <Compile Include="DataAccessors\SightDataAccessor.cs" />
     <Compile Include="DataAccessors\TourDataAccessor.cs" />
-    <Compile Include="Tests\TourDataAccessorTests.cs" />
-    <Compile Include="Tests\TourTypeDataAccessorTests.cs" />
+    <Compile Include="Tests\DataAccessor\TourDataAccessorTests.cs" />
+    <Compile Include="Tests\DataAccessor\TourTypeDataAccessorTests.cs" />
     <Compile Include="TouristDataSet.cs">
       <DependentUpon>TouristDataSet.xsd</DependentUpon>
     </Compile>
