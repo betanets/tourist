@@ -1,5 +1,6 @@
 ﻿using System;
 using Npgsql;
+using System.Configuration;
 
 namespace Tourist
 {
@@ -16,8 +17,7 @@ namespace Tourist
 
         private static String getConnectionString()
         {
-            //return ConfigurationManager.AppSettings["connectionString"];
-            return "Server=127.0.0.1;Port=5432;Database=tourist;User Id=postgres;Password=DNR;";
+            return ConfigurationManager.AppSettings["connectionString"];
         }
     }
 }

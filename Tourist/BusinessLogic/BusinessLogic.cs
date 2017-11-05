@@ -2,7 +2,7 @@
 
 namespace Tourist.BusinessLogic
 {
-    class BusinessLogic
+    class BusinessLogic : IBusinessLogic
     {
         private SightDataAccessor sightDataAccessor;
         private TourDataAccessor tourDataAccessor;
