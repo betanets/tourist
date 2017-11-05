@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/TouristDataSet.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/TouristDataSet.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/TouristDataSet.xsd" id="TouristDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="TouristDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Sight">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" name="id" type="xs:int" />
+              <xs:element minOccurs="0" name="sight_name" type="xs:string" />
+              <xs:element minOccurs="0" name="sight_descr" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tour">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" name="id" type="xs:int" />
+              <xs:element minOccurs="0" name="tour_name" type="xs:string" />
+              <xs:element minOccurs="0" name="tour_descr" type="xs:string" />
+              <xs:element minOccurs="0" name="id_sight" type="xs:int" />
+              <xs:element minOccurs="0" name="id_schedule" type="xs:int" />
+              <xs:element minOccurs="0" name="id_tour_type" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TourType">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" name="id" type="xs:int" />
+              <xs:element minOccurs="0" name="tour_type_name" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Schedule">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" name="id" type="xs:int" />
+              <xs:element minOccurs="0" name="tour_date" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Instructor">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" name="id" type="xs:int" />
+              <xs:element minOccurs="0" name="surname" type="xs:string" />
+              <xs:element minOccurs="0" name="forename" type="xs:string" />
+              <xs:element minOccurs="0" name="patronymic" type="xs:string" />
+              <xs:element minOccurs="0" name="id_schedule" type="xs:int" />
+              <xs:element minOccurs="0" name="id_tour_type" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="sight_pk">
+      <xs:selector xpath=".//mstns:Sight" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique msdata:PrimaryKey="true" name="tour_pk">
+      <xs:selector xpath=".//mstns:Tour" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique msdata:PrimaryKey="true" name="tour_type_pk">
+      <xs:selector xpath=".//mstns:TourType" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique msdata:PrimaryKey="true" name="schedule_pk">
+      <xs:selector xpath=".//mstns:Schedule" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique msdata:PrimaryKey="true" name="instructor_pk">
+      <xs:selector xpath=".//mstns:Instructor" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="FK_Schedule_Instructor" msdata:parent="Schedule" msdata:child="Instructor" msdata:parentkey="id" msdata:childkey="id_schedule" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" />
+      <msdata:Relationship name="FK_TourType_Instructor" msdata:parent="TourType" msdata:child="Instructor" msdata:parentkey="id" msdata:childkey="id_tour_type" />
+      <msdata:Relationship name="FK_TourType_Tour" msdata:parent="TourType" msdata:child="Tour" msdata:parentkey="id" msdata:childkey="id_tour_type" />
+      <msdata:Relationship name="FK_Schedule_Tour" msdata:parent="Schedule" msdata:child="Tour" msdata:parentkey="id" msdata:childkey="id_schedule" />
+      <msdata:Relationship name="FK_Sight_Tour" msdata:parent="Sight" msdata:child="Tour" msdata:parentkey="id" msdata:childkey="id_sight" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

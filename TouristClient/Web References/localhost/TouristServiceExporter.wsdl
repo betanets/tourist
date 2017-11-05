@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Tourist/222" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Tourist/222" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Tourist/222">
+      <s:import namespace="http://tempuri.org/TouristDataSet.xsd" />
+      <s:import schemaLocation="http://localhost:51133/TouristServiceExporter.asmx?schema=TouristDataSet" namespace="http://tempuri.org/TouristDataSet.xsd" />
+      <s:element name="ReadSight">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadSightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadSightResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteSight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataSet">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteSightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteSightResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadTour">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadTourResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadTourResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteTour">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataSet">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteTourResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteTourResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadInstructor">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadInstructorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadInstructorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteInstructor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataSet">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteInstructorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteInstructorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadTourType">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadTourTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadTourTypeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteTourType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataSet">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteTourTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteTourTypeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReadSchedule">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReadScheduleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReadScheduleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteSchedule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataSet">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteScheduleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteScheduleResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/TouristDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ReadSightSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadSight" />
+  </wsdl:message>
+  <wsdl:message name="ReadSightSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadSightResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteSightSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteSight" />
+  </wsdl:message>
+  <wsdl:message name="WriteSightSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteSightResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadTourSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadTour" />
+  </wsdl:message>
+  <wsdl:message name="ReadTourSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadTourResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteTourSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteTour" />
+  </wsdl:message>
+  <wsdl:message name="WriteTourSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteTourResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadInstructorSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadInstructor" />
+  </wsdl:message>
+  <wsdl:message name="ReadInstructorSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadInstructorResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteInstructorSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteInstructor" />
+  </wsdl:message>
+  <wsdl:message name="WriteInstructorSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteInstructorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadTourTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadTourType" />
+  </wsdl:message>
+  <wsdl:message name="ReadTourTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadTourTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteTourTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteTourType" />
+  </wsdl:message>
+  <wsdl:message name="WriteTourTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteTourTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReadScheduleSoapIn">
+    <wsdl:part name="parameters" element="tns:ReadSchedule" />
+  </wsdl:message>
+  <wsdl:message name="ReadScheduleSoapOut">
+    <wsdl:part name="parameters" element="tns:ReadScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteScheduleSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteSchedule" />
+  </wsdl:message>
+  <wsdl:message name="WriteScheduleSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteScheduleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TouristServiceExporterSoap">
+    <wsdl:operation name="ReadSight">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ReadSight</wsdl:documentation>
+      <wsdl:input message="tns:ReadSightSoapIn" />
+      <wsdl:output message="tns:ReadSightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteSight">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">WriteSight</wsdl:documentation>
+      <wsdl:input message="tns:WriteSightSoapIn" />
+      <wsdl:output message="tns:WriteSightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadTour">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ReadTour</wsdl:documentation>
+      <wsdl:input message="tns:ReadTourSoapIn" />
+      <wsdl:output message="tns:ReadTourSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteTour">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">WriteTour</wsdl:documentation>
+      <wsdl:input message="tns:WriteTourSoapIn" />
+      <wsdl:output message="tns:WriteTourSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadInstructor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ReadInstructor</wsdl:documentation>
+      <wsdl:input message="tns:ReadInstructorSoapIn" />
+      <wsdl:output message="tns:ReadInstructorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteInstructor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">WriteInstructor</wsdl:documentation>
+      <wsdl:input message="tns:WriteInstructorSoapIn" />
+      <wsdl:output message="tns:WriteInstructorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadTourType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ReadTourType</wsdl:documentation>
+      <wsdl:input message="tns:ReadTourTypeSoapIn" />
+      <wsdl:output message="tns:ReadTourTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteTourType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">WriteTourType</wsdl:documentation>
+      <wsdl:input message="tns:WriteTourTypeSoapIn" />
+      <wsdl:output message="tns:WriteTourTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadSchedule">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ReadSchedule</wsdl:documentation>
+      <wsdl:input message="tns:ReadScheduleSoapIn" />
+      <wsdl:output message="tns:ReadScheduleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteSchedule">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">WriteSchedule</wsdl:documentation>
+      <wsdl:input message="tns:WriteScheduleSoapIn" />
+      <wsdl:output message="tns:WriteScheduleSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TouristServiceExporterSoap" type="tns:TouristServiceExporterSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReadSight">
+      <soap:operation soapAction="http://Tourist/222/ReadSight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteSight">
+      <soap:operation soapAction="http://Tourist/222/WriteSight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadTour">
+      <soap:operation soapAction="http://Tourist/222/ReadTour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteTour">
+      <soap:operation soapAction="http://Tourist/222/WriteTour" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadInstructor">
+      <soap:operation soapAction="http://Tourist/222/ReadInstructor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteInstructor">
+      <soap:operation soapAction="http://Tourist/222/WriteInstructor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadTourType">
+      <soap:operation soapAction="http://Tourist/222/ReadTourType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteTourType">
+      <soap:operation soapAction="http://Tourist/222/WriteTourType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadSchedule">
+      <soap:operation soapAction="http://Tourist/222/ReadSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteSchedule">
+      <soap:operation soapAction="http://Tourist/222/WriteSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TouristServiceExporterSoap12" type="tns:TouristServiceExporterSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReadSight">
+      <soap12:operation soapAction="http://Tourist/222/ReadSight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteSight">
+      <soap12:operation soapAction="http://Tourist/222/WriteSight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadTour">
+      <soap12:operation soapAction="http://Tourist/222/ReadTour" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteTour">
+      <soap12:operation soapAction="http://Tourist/222/WriteTour" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadInstructor">
+      <soap12:operation soapAction="http://Tourist/222/ReadInstructor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteInstructor">
+      <soap12:operation soapAction="http://Tourist/222/WriteInstructor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadTourType">
+      <soap12:operation soapAction="http://Tourist/222/ReadTourType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteTourType">
+      <soap12:operation soapAction="http://Tourist/222/WriteTourType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadSchedule">
+      <soap12:operation soapAction="http://Tourist/222/ReadSchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteSchedule">
+      <soap12:operation soapAction="http://Tourist/222/WriteSchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TouristServiceExporter">
+    <wsdl:port name="TouristServiceExporterSoap" binding="tns:TouristServiceExporterSoap">
+      <soap:address location="http://localhost:51133/TouristServiceExporter.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TouristServiceExporterSoap12" binding="tns:TouristServiceExporterSoap12">
+      <soap12:address location="http://localhost:51133/TouristServiceExporter.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
