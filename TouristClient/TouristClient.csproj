@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSight.Designer.cs">
+      <DependentUpon>AddSight.cs</DependentUpon>
+    </Compile>
     <Compile Include="SightForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddSight.resx">
+      <DependentUpon>AddSight.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SightForm.resx">
       <DependentUpon>SightForm.cs</DependentUpon>
     </EmbeddedResource>
