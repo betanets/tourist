@@ -113,6 +113,9 @@ namespace Tourist.BusinessLogic
                 AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
                 try
                 {
+                    scheduleDataAccessor.ReadData(abstractTransaction, abstractConnection, dataSet);
+                    tourTypeDataAccessor.ReadData(abstractTransaction, abstractConnection, dataSet);
+                    sightDataAccessor.ReadData(abstractTransaction, abstractConnection, dataSet);
                     tourDataAccessor.ReadData(abstractTransaction, abstractConnection, dataSet);
                     abstractTransaction.Commit();
                 }
@@ -132,6 +135,9 @@ namespace Tourist.BusinessLogic
                 AbstractTransaction abstractTransaction = abstractConnection.BeginTransaction();
                 try
                 {
+                    scheduleDataAccessor.WriteData(abstractTransaction, abstractConnection, dataSet);
+                    tourTypeDataAccessor.WriteData(abstractTransaction, abstractConnection, dataSet);
+                    sightDataAccessor.WriteData(abstractTransaction, abstractConnection, dataSet);
                     tourDataAccessor.WriteData(abstractTransaction, abstractConnection, dataSet);
                     abstractTransaction.Commit();
                 }

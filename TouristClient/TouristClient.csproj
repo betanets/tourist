@@ -59,6 +59,12 @@
     <Compile Include="AddSight.Designer.cs">
       <DependentUpon>AddSight.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddTour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTour.Designer.cs">
+      <DependentUpon>AddTour.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddTourType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     <Compile Include="StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TourForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TourForm.Designer.cs">
+      <DependentUpon>TourForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TourTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddSight.resx">
       <DependentUpon>AddSight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTour.resx">
+      <DependentUpon>AddTour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddTourType.resx">
       <DependentUpon>AddTourType.cs</DependentUpon>
@@ -122,6 +137,9 @@
     </Compile>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TourForm.resx">
+      <DependentUpon>TourForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TourTypeForm.resx">
       <DependentUpon>TourTypeForm.cs</DependentUpon>

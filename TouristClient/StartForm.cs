@@ -27,5 +27,11 @@ namespace TouristClient
             InstructorForm instructorForm = new InstructorForm();
             instructorForm.ShowDialog();
         }
+
+        private void button_tour_Click(object sender, EventArgs e)
+        {
+            TourForm tourForm = new TourForm();
+            tourForm.ShowDialog();
+        }
     }
 }

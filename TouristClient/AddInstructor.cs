@@ -38,8 +38,6 @@ namespace TouristClient
                 this.textBox_surname.Text = instructorSelectedRow["surname"].ToString();
                 this.textBox_forename.Text = instructorSelectedRow["forename"].ToString();
                 this.textBox_patronymic.Text = instructorSelectedRow["patronymic"].ToString();
-
-                //TODO: add&check Int32 conversion???
                 this.comboBox_tourType.SelectedValue = instructorSelectedRow["id_tour_type"];
                 this.comboBox_tourDate.SelectedValue = instructorSelectedRow["id_schedule"];
             }

@@ -31,6 +31,7 @@
             this.button_sight = new System.Windows.Forms.Button();
             this.button_tour_type = new System.Windows.Forms.Button();
             this.button_instructor = new System.Windows.Forms.Button();
+            this.button_tour = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_sight
@@ -63,11 +64,22 @@
             this.button_instructor.UseVisualStyleBackColor = true;
             this.button_instructor.Click += new System.EventHandler(this.button_instructor_Click);
             // 
+            // button_tour
+            // 
+            this.button_tour.Location = new System.Drawing.Point(265, 61);
+            this.button_tour.Name = "button_tour";
+            this.button_tour.Size = new System.Drawing.Size(110, 37);
+            this.button_tour.TabIndex = 3;
+            this.button_tour.Text = "Туры";
+            this.button_tour.UseVisualStyleBackColor = true;
+            this.button_tour.Click += new System.EventHandler(this.button_tour_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 110);
+            this.Controls.Add(this.button_tour);
             this.Controls.Add(this.button_instructor);
             this.Controls.Add(this.button_tour_type);
             this.Controls.Add(this.button_sight);
@@ -84,5 +96,6 @@
         private System.Windows.Forms.Button button_sight;
         private System.Windows.Forms.Button button_tour_type;
         private System.Windows.Forms.Button button_instructor;
+        private System.Windows.Forms.Button button_tour;
     }
 }
