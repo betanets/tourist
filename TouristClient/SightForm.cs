@@ -47,10 +47,12 @@ namespace TouristClient
         {
             //Получение 1й выбранной строки и отправка соответствующей строки датасета в форму редактирования
             AddSight addSight = new AddSight(touristDataSet.Sight, touristDataSet.Sight.Rows.Find(dataGridView_sight.SelectedRows[0].Cells["id"].Value));
+            addSight.Text = "Редактирование достопримечательности";
             addSight.ShowDialog();
             if (addSight.DialogResult == DialogResult.OK)
             {
                 touristDataSet = touristServiceExporter.WriteSight(touristDataSet);
+                ReloadTable();
             }
         }
 
@@ -61,6 +63,7 @@ namespace TouristClient
             {
                 touristDataSet.Sight.Rows.Find(dataGridView_sight.SelectedRows[0].Cells["id"].Value).Delete();
                 touristDataSet = touristServiceExporter.WriteSight(touristDataSet);
+                ReloadTable();
             }
         }
     }

@@ -58,20 +58,20 @@
             // 
             this.textBox_name.Location = new System.Drawing.Point(101, 10);
             this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(290, 20);
+            this.textBox_name.Size = new System.Drawing.Size(321, 20);
             this.textBox_name.TabIndex = 2;
             // 
             // textBox_description
             // 
             this.textBox_description.Location = new System.Drawing.Point(101, 36);
             this.textBox_description.Name = "textBox_description";
-            this.textBox_description.Size = new System.Drawing.Size(290, 20);
+            this.textBox_description.Size = new System.Drawing.Size(321, 20);
             this.textBox_description.TabIndex = 3;
             // 
             // button_ok
             // 
             this.button_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button_ok.Location = new System.Drawing.Point(235, 62);
+            this.button_ok.Location = new System.Drawing.Point(266, 62);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(75, 23);
             this.button_ok.TabIndex = 4;
@@ -82,7 +82,7 @@
             // button_cancel
             // 
             this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_cancel.Location = new System.Drawing.Point(316, 62);
+            this.button_cancel.Location = new System.Drawing.Point(347, 62);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
             this.button_cancel.TabIndex = 5;
@@ -94,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 95);
+            this.ClientSize = new System.Drawing.Size(434, 96);
             this.Controls.Add(this.button_cancel);
             this.Controls.Add(this.button_ok);
             this.Controls.Add(this.textBox_description);

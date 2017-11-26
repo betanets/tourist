@@ -50,13 +50,13 @@
             this.dataGridView_sight.Name = "dataGridView_sight";
             this.dataGridView_sight.RowHeadersVisible = false;
             this.dataGridView_sight.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_sight.Size = new System.Drawing.Size(746, 260);
+            this.dataGridView_sight.Size = new System.Drawing.Size(759, 303);
             this.dataGridView_sight.TabIndex = 0;
             // 
             // button_add
             // 
             this.button_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_add.Location = new System.Drawing.Point(13, 283);
+            this.button_add.Location = new System.Drawing.Point(13, 326);
             this.button_add.Name = "button_add";
             this.button_add.Size = new System.Drawing.Size(79, 23);
             this.button_add.TabIndex = 2;
@@ -67,7 +67,7 @@
             // button_edit
             // 
             this.button_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_edit.Location = new System.Drawing.Point(98, 283);
+            this.button_edit.Location = new System.Drawing.Point(98, 326);
             this.button_edit.Name = "button_edit";
             this.button_edit.Size = new System.Drawing.Size(129, 23);
             this.button_edit.TabIndex = 3;
@@ -78,7 +78,7 @@
             // button_delete
             // 
             this.button_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_delete.Location = new System.Drawing.Point(666, 283);
+            this.button_delete.Location = new System.Drawing.Point(679, 326);
             this.button_delete.Name = "button_delete";
             this.button_delete.Size = new System.Drawing.Size(93, 23);
             this.button_delete.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 318);
+            this.ClientSize = new System.Drawing.Size(784, 361);
             this.Controls.Add(this.button_delete);
             this.Controls.Add(this.button_edit);
             this.Controls.Add(this.button_add);

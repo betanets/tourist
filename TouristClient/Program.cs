@@ -13,7 +13,7 @@ namespace TouristClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SightForm());
+            Application.Run(new StartForm());
         }
     }
 }
