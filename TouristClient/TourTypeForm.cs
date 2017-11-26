@@ -6,13 +6,13 @@ namespace TouristClient
 {
     public partial class TourTypeForm : Form
     {
+        private TouristServiceExporter touristServiceExporter = new TouristServiceExporter();
+        private TouristDataSet touristDataSet;
+
         public TourTypeForm()
         {
             InitializeComponent();
         }
-
-        private TouristServiceExporter touristServiceExporter = new TouristServiceExporter();
-        private TouristDataSet touristDataSet;
 
         void ReloadTable()
         {

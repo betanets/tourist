@@ -88,7 +88,6 @@
             this.button_cancel.TabIndex = 5;
             this.button_cancel.Text = "Отмена";
             this.button_cancel.UseVisualStyleBackColor = true;
-            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // AddSight
             // 

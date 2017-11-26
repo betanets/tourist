@@ -30,6 +30,7 @@
         {
             this.button_sight = new System.Windows.Forms.Button();
             this.button_tour_type = new System.Windows.Forms.Button();
+            this.button_instructor = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_sight
@@ -52,11 +53,22 @@
             this.button_tour_type.UseVisualStyleBackColor = true;
             this.button_tour_type.Click += new System.EventHandler(this.button_tour_type_Click);
             // 
+            // button_instructor
+            // 
+            this.button_instructor.Location = new System.Drawing.Point(12, 55);
+            this.button_instructor.Name = "button_instructor";
+            this.button_instructor.Size = new System.Drawing.Size(110, 37);
+            this.button_instructor.TabIndex = 2;
+            this.button_instructor.Text = "Инструкторы";
+            this.button_instructor.UseVisualStyleBackColor = true;
+            this.button_instructor.Click += new System.EventHandler(this.button_instructor_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 261);
+            this.ClientSize = new System.Drawing.Size(388, 110);
+            this.Controls.Add(this.button_instructor);
             this.Controls.Add(this.button_tour_type);
             this.Controls.Add(this.button_sight);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.Button button_sight;
         private System.Windows.Forms.Button button_tour_type;
+        private System.Windows.Forms.Button button_instructor;
     }
 }

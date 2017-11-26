@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddInstructor.Designer.cs">
+      <DependentUpon>AddInstructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddSight.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,12 @@
     </Compile>
     <Compile Include="AddTourType.Designer.cs">
       <DependentUpon>AddTourType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructorForm.Designer.cs">
+      <DependentUpon>InstructorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SightForm.cs">
       <SubType>Form</SubType>
@@ -84,11 +96,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddInstructor.resx">
+      <DependentUpon>AddInstructor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddSight.resx">
       <DependentUpon>AddSight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddTourType.resx">
       <DependentUpon>AddTourType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructorForm.resx">
+      <DependentUpon>InstructorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SightForm.resx">
       <DependentUpon>SightForm.cs</DependentUpon>
