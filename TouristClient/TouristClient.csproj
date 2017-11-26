@@ -53,6 +53,12 @@
     <Compile Include="AddInstructor.Designer.cs">
       <DependentUpon>AddInstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSchedule.Designer.cs">
+      <DependentUpon>AddSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddSight.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="InstructorForm.Designer.cs">
       <DependentUpon>InstructorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleForm.Designer.cs">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SightForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +123,9 @@
     <EmbeddedResource Include="AddInstructor.resx">
       <DependentUpon>AddInstructor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddSchedule.resx">
+      <DependentUpon>AddSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddSight.resx">
       <DependentUpon>AddSight.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InstructorForm.resx">
       <DependentUpon>InstructorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleForm.resx">
+      <DependentUpon>ScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SightForm.resx">
       <DependentUpon>SightForm.cs</DependentUpon>

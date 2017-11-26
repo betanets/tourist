@@ -58,7 +58,7 @@ namespace TouristClient
             }
             if (this.comboBox_tourDate.SelectedValue == null || Convert.ToInt32(this.comboBox_tourDate.SelectedValue) < 0)
             {
-                MessageBox.Show("Необходимо выбрать дату тура", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Необходимо выбрать дату выхода", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

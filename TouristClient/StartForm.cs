@@ -33,5 +33,11 @@ namespace TouristClient
             TourForm tourForm = new TourForm();
             tourForm.ShowDialog();
         }
+
+        private void button_tour_schedule_Click(object sender, EventArgs e)
+        {
+            ScheduleForm scheduleForm = new ScheduleForm();
+            scheduleForm.ShowDialog();
+        }
     }
 }

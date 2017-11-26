@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Services.Protocols;
 using System.Windows.Forms;
 using TouristClient.localhost;
 
@@ -61,9 +62,17 @@ namespace TouristClient
             DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную строку?", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(result == DialogResult.Yes)
             {
-                touristDataSet.Sight.Rows.Find(dataGridView_sight.SelectedRows[0].Cells["id"].Value).Delete();
-                touristDataSet = touristServiceExporter.WriteSight(touristDataSet);
-                ReloadTable();
+                try
+                {
+                    touristDataSet.Sight.Rows.Find(dataGridView_sight.SelectedRows[0].Cells["id"].Value).Delete();
+                    touristDataSet = touristServiceExporter.WriteSight(touristDataSet);
+                    ReloadTable();
+                }
+                catch (SoapException)
+                {
+                    ReloadTable();
+                    MessageBox.Show("Не удалось удалить выбранную строку.\nСкорее всего, на данную строку имеются ссылки из других таблиц", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

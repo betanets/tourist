@@ -1,42 +1,42 @@
 ﻿using System;
-using System.Web.Services.Protocols;
 using System.Windows.Forms;
+using System.Web.Services.Protocols;
 using TouristClient.localhost;
 
 namespace TouristClient
 {
-    public partial class TourTypeForm : Form
+    public partial class ScheduleForm : Form
     {
         private TouristServiceExporter touristServiceExporter = new TouristServiceExporter();
         private TouristDataSet touristDataSet;
 
-        public TourTypeForm()
+        public ScheduleForm()
         {
             InitializeComponent();
         }
 
         void ReloadTable()
         {
-            touristDataSet = touristServiceExporter.ReadTourType();
-            dataGridView_tourType.DataSource = touristDataSet;
-            dataGridView_tourType.DataMember = "TourType";
-            dataGridView_tourType.Columns["tour_type_name"].HeaderText = "Название";
-            dataGridView_tourType.Columns["tour_type_name"].Width = 700;
-            dataGridView_tourType.Columns["id"].Visible = false;
+            touristDataSet = touristServiceExporter.ReadSchedule();
+            dataGridView_schedule.DataSource = touristDataSet;
+            dataGridView_schedule.DataMember = "Schedule";
+            dataGridView_schedule.Columns["tour_date"].HeaderText = "Дата";
+            dataGridView_schedule.Columns["tour_date"].Width = 700;
+            dataGridView_schedule.Columns["id"].Visible = false;
         }
 
-        private void TourTypeForm_Load(object sender, EventArgs e)
+        private void ScheduleForm_Load(object sender, EventArgs e)
         {
             ReloadTable();
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            AddTourType addTourType = new AddTourType(touristDataSet.TourType, null);
-            addTourType.ShowDialog();
-            if (addTourType.DialogResult == DialogResult.OK)
+            AddSchedule addSchedule = new AddSchedule(touristDataSet.Schedule, null);
+            addSchedule.ShowDialog();
+            if (addSchedule.DialogResult == DialogResult.OK)
             {
-                touristServiceExporter.WriteTourType(touristDataSet);
+                touristServiceExporter.WriteSchedule(touristDataSet);
                 //Перезагрузка таблицы для подтягивания ID новой записи
                 ReloadTable();
             }
@@ -45,12 +45,12 @@ namespace TouristClient
         private void button_edit_Click(object sender, EventArgs e)
         {
             //Получение 1й выбранной строки и отправка соответствующей строки датасета в форму редактирования
-            AddTourType addTourType = new AddTourType(touristDataSet.TourType, touristDataSet.TourType.Rows.Find(dataGridView_tourType.SelectedRows[0].Cells["id"].Value));
-            addTourType.Text = "Редактирование типа туров";
-            addTourType.ShowDialog();
-            if (addTourType.DialogResult == DialogResult.OK)
+            AddSchedule addSchedule = new AddSchedule(touristDataSet.Schedule, touristDataSet.Schedule.Rows.Find(dataGridView_schedule.SelectedRows[0].Cells["id"].Value));
+            addSchedule.Text = "Редактирование даты тура";
+            addSchedule.ShowDialog();
+            if (addSchedule.DialogResult == DialogResult.OK)
             {
-                touristDataSet = touristServiceExporter.WriteTourType(touristDataSet);
+                touristDataSet = touristServiceExporter.WriteSchedule(touristDataSet);
                 ReloadTable();
             }
         }
@@ -62,8 +62,8 @@ namespace TouristClient
             {
                 try
                 {
-                    touristDataSet.TourType.Rows.Find(dataGridView_tourType.SelectedRows[0].Cells["id"].Value).Delete();
-                    touristDataSet = touristServiceExporter.WriteTourType(touristDataSet);
+                    touristDataSet.Schedule.Rows.Find(dataGridView_schedule.SelectedRows[0].Cells["id"].Value).Delete();
+                    touristDataSet = touristServiceExporter.WriteSchedule(touristDataSet);
                     ReloadTable();
                 }
                 catch (SoapException)

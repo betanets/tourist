@@ -51,7 +51,7 @@
             this.label_description.Location = new System.Drawing.Point(13, 39);
             this.label_description.Name = "label_description";
             this.label_description.Size = new System.Drawing.Size(57, 13);
-            this.label_description.TabIndex = 1;
+            this.label_description.TabIndex = 2;
             this.label_description.Text = "Описание";
             // 
             // textBox_name
@@ -59,7 +59,7 @@
             this.textBox_name.Location = new System.Drawing.Point(101, 10);
             this.textBox_name.Name = "textBox_name";
             this.textBox_name.Size = new System.Drawing.Size(321, 20);
-            this.textBox_name.TabIndex = 2;
+            this.textBox_name.TabIndex = 1;
             // 
             // textBox_description
             // 

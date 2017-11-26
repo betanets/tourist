@@ -67,14 +67,14 @@
             this.textBox_forename.Location = new System.Drawing.Point(103, 38);
             this.textBox_forename.Name = "textBox_forename";
             this.textBox_forename.Size = new System.Drawing.Size(321, 20);
-            this.textBox_forename.TabIndex = 9;
+            this.textBox_forename.TabIndex = 3;
             // 
             // textBox_surname
             // 
             this.textBox_surname.Location = new System.Drawing.Point(103, 12);
             this.textBox_surname.Name = "textBox_surname";
             this.textBox_surname.Size = new System.Drawing.Size(321, 20);
-            this.textBox_surname.TabIndex = 8;
+            this.textBox_surname.TabIndex = 1;
             // 
             // label_forename
             // 
@@ -82,7 +82,7 @@
             this.label_forename.Location = new System.Drawing.Point(15, 41);
             this.label_forename.Name = "label_forename";
             this.label_forename.Size = new System.Drawing.Size(29, 13);
-            this.label_forename.TabIndex = 7;
+            this.label_forename.TabIndex = 2;
             this.label_forename.Text = "Имя";
             // 
             // label_surname
@@ -91,7 +91,7 @@
             this.label_surname.Location = new System.Drawing.Point(15, 15);
             this.label_surname.Name = "label_surname";
             this.label_surname.Size = new System.Drawing.Size(56, 13);
-            this.label_surname.TabIndex = 6;
+            this.label_surname.TabIndex = 0;
             this.label_surname.Text = "Фамилия";
             // 
             // textBox_patronymic
@@ -99,7 +99,7 @@
             this.textBox_patronymic.Location = new System.Drawing.Point(103, 64);
             this.textBox_patronymic.Name = "textBox_patronymic";
             this.textBox_patronymic.Size = new System.Drawing.Size(321, 20);
-            this.textBox_patronymic.TabIndex = 13;
+            this.textBox_patronymic.TabIndex = 5;
             // 
             // label_patronymic
             // 
@@ -107,7 +107,7 @@
             this.label_patronymic.Location = new System.Drawing.Point(15, 67);
             this.label_patronymic.Name = "label_patronymic";
             this.label_patronymic.Size = new System.Drawing.Size(54, 13);
-            this.label_patronymic.TabIndex = 12;
+            this.label_patronymic.TabIndex = 4;
             this.label_patronymic.Text = "Отчество";
             // 
             // label_tourType
@@ -116,7 +116,7 @@
             this.label_tourType.Location = new System.Drawing.Point(15, 96);
             this.label_tourType.Name = "label_tourType";
             this.label_tourType.Size = new System.Drawing.Size(51, 13);
-            this.label_tourType.TabIndex = 14;
+            this.label_tourType.TabIndex = 6;
             this.label_tourType.Text = "Тип тура";
             // 
             // comboBox_tourType
@@ -126,7 +126,7 @@
             this.comboBox_tourType.Location = new System.Drawing.Point(103, 93);
             this.comboBox_tourType.Name = "comboBox_tourType";
             this.comboBox_tourType.Size = new System.Drawing.Size(320, 21);
-            this.comboBox_tourType.TabIndex = 15;
+            this.comboBox_tourType.TabIndex = 7;
             // 
             // comboBox_tourDate
             // 
@@ -135,7 +135,7 @@
             this.comboBox_tourDate.Location = new System.Drawing.Point(103, 120);
             this.comboBox_tourDate.Name = "comboBox_tourDate";
             this.comboBox_tourDate.Size = new System.Drawing.Size(320, 21);
-            this.comboBox_tourDate.TabIndex = 17;
+            this.comboBox_tourDate.TabIndex = 9;
             // 
             // label_tourDate
             // 
@@ -143,7 +143,7 @@
             this.label_tourDate.Location = new System.Drawing.Point(15, 123);
             this.label_tourDate.Name = "label_tourDate";
             this.label_tourDate.Size = new System.Drawing.Size(73, 13);
-            this.label_tourDate.TabIndex = 16;
+            this.label_tourDate.TabIndex = 8;
             this.label_tourDate.Text = "Дата выхода";
             // 
             // AddInstructor

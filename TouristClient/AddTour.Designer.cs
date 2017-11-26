@@ -46,36 +46,36 @@
             // 
             this.comboBox_tourDate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_tourDate.FormattingEnabled = true;
-            this.comboBox_tourDate.Location = new System.Drawing.Point(130, 94);
+            this.comboBox_tourDate.Location = new System.Drawing.Point(130, 121);
             this.comboBox_tourDate.Name = "comboBox_tourDate";
             this.comboBox_tourDate.Size = new System.Drawing.Size(320, 21);
-            this.comboBox_tourDate.TabIndex = 25;
+            this.comboBox_tourDate.TabIndex = 9;
             // 
             // label_tourDate
             // 
             this.label_tourDate.AutoSize = true;
-            this.label_tourDate.Location = new System.Drawing.Point(16, 94);
+            this.label_tourDate.Location = new System.Drawing.Point(16, 124);
             this.label_tourDate.Name = "label_tourDate";
             this.label_tourDate.Size = new System.Drawing.Size(73, 13);
-            this.label_tourDate.TabIndex = 24;
+            this.label_tourDate.TabIndex = 8;
             this.label_tourDate.Text = "Дата выхода";
             // 
             // comboBox_tourType
             // 
             this.comboBox_tourType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_tourType.FormattingEnabled = true;
-            this.comboBox_tourType.Location = new System.Drawing.Point(130, 67);
+            this.comboBox_tourType.Location = new System.Drawing.Point(130, 94);
             this.comboBox_tourType.Name = "comboBox_tourType";
             this.comboBox_tourType.Size = new System.Drawing.Size(320, 21);
-            this.comboBox_tourType.TabIndex = 23;
+            this.comboBox_tourType.TabIndex = 7;
             // 
             // label_tourType
             // 
             this.label_tourType.AutoSize = true;
-            this.label_tourType.Location = new System.Drawing.Point(16, 67);
+            this.label_tourType.Location = new System.Drawing.Point(16, 97);
             this.label_tourType.Name = "label_tourType";
             this.label_tourType.Size = new System.Drawing.Size(51, 13);
-            this.label_tourType.TabIndex = 22;
+            this.label_tourType.TabIndex = 6;
             this.label_tourType.Text = "Тип тура";
             // 
             // textBox_description
@@ -83,14 +83,14 @@
             this.textBox_description.Location = new System.Drawing.Point(130, 41);
             this.textBox_description.Name = "textBox_description";
             this.textBox_description.Size = new System.Drawing.Size(321, 20);
-            this.textBox_description.TabIndex = 21;
+            this.textBox_description.TabIndex = 3;
             // 
             // textBox_name
             // 
             this.textBox_name.Location = new System.Drawing.Point(130, 15);
             this.textBox_name.Name = "textBox_name";
             this.textBox_name.Size = new System.Drawing.Size(321, 20);
-            this.textBox_name.TabIndex = 20;
+            this.textBox_name.TabIndex = 1;
             // 
             // label_forename
             // 
@@ -98,7 +98,7 @@
             this.label_forename.Location = new System.Drawing.Point(16, 41);
             this.label_forename.Name = "label_forename";
             this.label_forename.Size = new System.Drawing.Size(57, 13);
-            this.label_forename.TabIndex = 19;
+            this.label_forename.TabIndex = 2;
             this.label_forename.Text = "Описание";
             // 
             // label_surname
@@ -107,25 +107,25 @@
             this.label_surname.Location = new System.Drawing.Point(16, 15);
             this.label_surname.Name = "label_surname";
             this.label_surname.Size = new System.Drawing.Size(83, 13);
-            this.label_surname.TabIndex = 18;
+            this.label_surname.TabIndex = 0;
             this.label_surname.Text = "Наименование";
             // 
             // comboBox_sight
             // 
             this.comboBox_sight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_sight.FormattingEnabled = true;
-            this.comboBox_sight.Location = new System.Drawing.Point(130, 121);
+            this.comboBox_sight.Location = new System.Drawing.Point(130, 67);
             this.comboBox_sight.Name = "comboBox_sight";
             this.comboBox_sight.Size = new System.Drawing.Size(320, 21);
-            this.comboBox_sight.TabIndex = 27;
+            this.comboBox_sight.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 121);
+            this.label1.Location = new System.Drawing.Point(16, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 13);
-            this.label1.TabIndex = 26;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Главная достоприм.";
             // 
             // button_cancel
@@ -134,7 +134,7 @@
             this.button_cancel.Location = new System.Drawing.Point(375, 148);
             this.button_cancel.Name = "button_cancel";
             this.button_cancel.Size = new System.Drawing.Size(75, 23);
-            this.button_cancel.TabIndex = 29;
+            this.button_cancel.TabIndex = 11;
             this.button_cancel.Text = "Отмена";
             this.button_cancel.UseVisualStyleBackColor = true;
             // 
@@ -143,7 +143,7 @@
             this.button_ok.Location = new System.Drawing.Point(294, 148);
             this.button_ok.Name = "button_ok";
             this.button_ok.Size = new System.Drawing.Size(75, 23);
-            this.button_ok.TabIndex = 28;
+            this.button_ok.TabIndex = 10;
             this.button_ok.Text = "OK";
             this.button_ok.UseVisualStyleBackColor = true;
             this.button_ok.Click += new System.EventHandler(this.button_ok_Click);

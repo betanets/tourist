@@ -32,6 +32,7 @@
             this.button_tour_type = new System.Windows.Forms.Button();
             this.button_instructor = new System.Windows.Forms.Button();
             this.button_tour = new System.Windows.Forms.Button();
+            this.button_tour_schedule = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_sight
@@ -46,7 +47,7 @@
             // 
             // button_tour_type
             // 
-            this.button_tour_type.Location = new System.Drawing.Point(265, 12);
+            this.button_tour_type.Location = new System.Drawing.Point(173, 12);
             this.button_tour_type.Name = "button_tour_type";
             this.button_tour_type.Size = new System.Drawing.Size(110, 37);
             this.button_tour_type.TabIndex = 1;
@@ -58,7 +59,7 @@
             // 
             this.button_instructor.Location = new System.Drawing.Point(12, 55);
             this.button_instructor.Name = "button_instructor";
-            this.button_instructor.Size = new System.Drawing.Size(110, 37);
+            this.button_instructor.Size = new System.Drawing.Size(155, 37);
             this.button_instructor.TabIndex = 2;
             this.button_instructor.Text = "Инструкторы";
             this.button_instructor.UseVisualStyleBackColor = true;
@@ -66,7 +67,7 @@
             // 
             // button_tour
             // 
-            this.button_tour.Location = new System.Drawing.Point(265, 61);
+            this.button_tour.Location = new System.Drawing.Point(289, 61);
             this.button_tour.Name = "button_tour";
             this.button_tour.Size = new System.Drawing.Size(110, 37);
             this.button_tour.TabIndex = 3;
@@ -74,11 +75,22 @@
             this.button_tour.UseVisualStyleBackColor = true;
             this.button_tour.Click += new System.EventHandler(this.button_tour_Click);
             // 
+            // button_tour_schedule
+            // 
+            this.button_tour_schedule.Location = new System.Drawing.Point(289, 12);
+            this.button_tour_schedule.Name = "button_tour_schedule";
+            this.button_tour_schedule.Size = new System.Drawing.Size(110, 37);
+            this.button_tour_schedule.TabIndex = 4;
+            this.button_tour_schedule.Text = "Даты туров";
+            this.button_tour_schedule.UseVisualStyleBackColor = true;
+            this.button_tour_schedule.Click += new System.EventHandler(this.button_tour_schedule_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 110);
+            this.ClientSize = new System.Drawing.Size(409, 110);
+            this.Controls.Add(this.button_tour_schedule);
             this.Controls.Add(this.button_tour);
             this.Controls.Add(this.button_instructor);
             this.Controls.Add(this.button_tour_type);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.Button button_tour_type;
         private System.Windows.Forms.Button button_instructor;
         private System.Windows.Forms.Button button_tour;
+        private System.Windows.Forms.Button button_tour_schedule;
     }
 }
