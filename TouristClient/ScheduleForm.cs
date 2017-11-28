@@ -44,6 +44,11 @@ namespace TouristClient
 
         private void button_edit_Click(object sender, EventArgs e)
         {
+            if (dataGridView_schedule.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Не выбрана ни одна строка для редактирования", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             //Получение 1й выбранной строки и отправка соответствующей строки датасета в форму редактирования
             AddSchedule addSchedule = new AddSchedule(touristDataSet.Schedule, touristDataSet.Schedule.Rows.Find(dataGridView_schedule.SelectedRows[0].Cells["id"].Value));
             addSchedule.Text = "Редактирование даты тура";
@@ -57,6 +62,11 @@ namespace TouristClient
 
         private void button_delete_Click(object sender, EventArgs e)
         {
+            if (dataGridView_schedule.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Не выбрана ни одна строка для удаления", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DialogResult result = MessageBox.Show("Вы действительно хотите удалить выбранную строку?", "Подтверждение удаления", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
